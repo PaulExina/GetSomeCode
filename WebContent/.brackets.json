@@ -1,0 +1,13 @@
+{
+    "jscodehints.detectedExclusions": [
+        "/home/paul/git/TestMT/WebContent/scripts/handle_form.js",
+        "ruby.js",
+        "folding/csharp.js",
+        "/home/paul/git/TestMT/WebContent/Test_editeurCode/js/ace/mode-liquid.js",
+        "yaml_highlight_rules.js",
+        "/home/paul/git/TestMT/WebContent/Test_editeurCode/js/ace/mode-mel.js",
+        "/home/paul/git/TestMT/WebContent/Test_editeurCode/js/ace/mode-diff.js",
+        "/home/paul/git/TestMT/WebContent/Test_editeurCode/js/ace/mode-dart.js",
+        "/home/paul/git/TestMT/WebContent/Test_editeurCode/js/ace/mode-python.js"
+    ]
+}

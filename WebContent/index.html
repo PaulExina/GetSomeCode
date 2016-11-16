@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html id="html">
+    <head>
+        <meta name="viewport" content="width=device-width, initial scale=1">
+        <meta http-equiv="X-UA-Compatible" content="text/html; charset=utf-8,IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="author" content="TEAM_PILLOW">
+        
+        <title>COME &amp; GET SOME !</title>
+        
+        <!-- jQuery -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+   
+         <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+        
+        <script src="scripts/handle_navbar.js"></script>
+        
+        <script src="scripts/handle_form.js"></script>
+        
+        <script src="scripts/handle_css.js"></script>
+
+        <script src="scripts/handle_snippets.js"></script>
+        
+        
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+        <!-- Font-Awesome core CSS -->
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+        
+        <link rel="stylesheet" href="css/pagestyle.css">
+    </head>
+    <body id="body">
+        <!-- Navbar & Header -->
+        <header class="navbar navbar-static-top bs-docs-nav" id="top_header" role="banner">
+              <div class="container">
+                    <div class="navbar-header">
+                      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                        <a href="" class="navbar-brand">Get Some Code</a>
+                    </div>
+                    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                      <ul class="nav navbar-nav">
+                        <li >
+                            <a href="#search" class="navbar_element " onclick="javascript:page_search()"> Search Snippets </a>
+                        </li>
+                        <li>
+                            <a href="#post"  class="navbar_element " onclick="javascript:page_post()"> Post Snippets </a>
+                        </li>
+                        <li>
+                            <a href="#edit" class="navbar_element" onclick="javascript:page_edit()"> Edit Code </a>
+                        </li>
+                      </ul>
+                      <ul class="nav navbar-nav navbar-right">
+                          <li><a href="#"  class="navbar_element " data-toggle="modal" data-target="#registerModal"> Sign Up </a></li>
+                          <li><a href="#"  class="navbar_element " data-toggle="modal" data-target="#loginModal"> Log In </a></li>
+                      </ul>
+                    </nav>
+              </div>
+        </header>
+        
+        <!--Modal-->
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Log in</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <!-- The form is placed inside the body of modal -->
+                        <form id="loginForm" method="post" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Username</label>
+                                <div class="col-sm-5">
+                                    <input name="inputLogin"
+                                           id="inputLogin"
+                                           type="email" required 
+                                           class="form-control" placeholder="Username"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputPwdLogin" class="col-sm-3 control-label">Password</label>
+                                <div class="col-sm-5">
+                                    <input name="inputPwdLogin" required 
+                                           type="password" class="form-control" 
+                                           id="inputPwdLogin" placeholder="Password"/>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <span class="col-sm-2"></span>
+                                <a href="#" class="col-sm-10" data-toggle="modal" data-target="#registerModal" style="color:white"><b>
+                                    You don't have any account ? Click here to get one !</b></a>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-5 col-sm-offset-3">
+                                    <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="javascript:log_in()">Log in</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Create an account</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <!-- The form is placed inside the body of modal -->
+                        <form id="registerForm" method="post" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Last Name</label>
+                                <div class="col-sm-5">
+                                    <input placeholder="Last Name" type="text" class="form-control" name="inputLastName" id="inputLastName" />
+                                </div>
+                            </div>
+                             
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">First Name</label>
+                                <div class="col-sm-5">
+                                    <input name="inputFirstName" id="inputFirstName" type="text" class="form-control" placeholder="First Name" />
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Username</label>
+                                <div class="col-sm-5">
+                                    <input name="inputUserName" id="inputUserName" type="text" class="form-control" placeholder="Username" />
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Email</label>
+                                <div class="col-sm-5">
+                                    <input name="inputEmail" id="inputEmail" type="email" required class="form-control" placeholder="Email" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Password</label>
+                                <div class="col-sm-5">
+                                    <input name="inputPwd" id="inputPwd" type="password" class="form-control" placeholder="Password" />
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Confirm password</label>
+                                <div class="col-sm-5">
+                                    <input name="inputConfPwd" id="inputConfPwd" type="password" class="form-control" placeholder="Confirm password"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-5 col-sm-offset-3">
+                                    <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="javascript:sign_in()">Sign in</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="modal fade" id="snippetModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" id="snippet_modal_window">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Title Snippet</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <form id="loginForm" method="post" class="form-horizontal">
+                            <div class="row">
+                                <label for="snippet_modal_author" class="col-sm-3 control-label">Author</label>
+                                <div class="col-sm-5">
+                                    <input  name="snippet_author" placeholder="Author Name" type="text" class="form-control snippet_modal" readonly/>
+                                </div>
+                            </div><!-- End of Row Language-->
+                            <br/>
+                            <div class="row">
+                                <label for="snippet_modal_language" class="col-sm-3 control-label">Language</label>
+                                <div class="col-sm-5">
+                                    <input name="snippet_modal_language" placeholder="Language" type="text" class="form-control snippet_modal" readonly/>
+                                </div>
+                            </div><!-- End of Row Language-->
+                            <br/>
+                            <div class="row">
+                                <label for="snippet_modal_category" class="col-sm-3 control-label">Category</label>
+                                <div class="col-sm-5">
+                                    <input name="snippet_modal_category" placeholder="Category" type="text" class="form-control snippet_modal" readonly/>
+                                </div>
+                            </div><!-- End of Row Category-->
+                            <br/>
+                            <div class="row">
+                                <label for="snippet_modal_tags" class="col-sm-3 control-label">Tags</label>
+                                <div class="col-sm-5" id="modal_tags">
+                                </div>
+                            </div><!-- End of Row Tags-->
+                            <br/>
+                            <div class="row">
+                                <label for="snippet_modal_description" class="col-sm-3 control-label">Description</label>
+                                <div class="col-sm-5">
+                                    <textarea name="snippet_modal_description" id="snippet_modal_description" placeholder="Description" type="text" class="form-control snippet_modal" readonly></textarea>
+                                </div>       
+                            </div><!-- End of Row Description-->
+                            <br/>
+                            <div class="row">
+                                <label for="snippet_modal_content" class="col-sm-3 control-label">Content</label>
+                                <div class="col-sm-5">
+                                    <textarea name="snippet_modal_content"  id="snippet_modal_content" placeholder="Snippet Content" class="form-control snippet_modal" readonly></textarea>
+                                </div>       
+                            </div><!-- End of Row Content-->
+                            <br/>
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-3">
+                                    <button type="button" data-dismiss="modal" class="btn btn-primary btn-lg" onclick="javascript:quickcopy()">Copy in editor</span></button>
+                                </div>
+                                <div class="col-md-3 col-md-offset-3">
+                                    <i>or copy the text manually to get the snippet out the website...</i>
+                                </div>
+                            </div>
+                            <br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel" aria-hidden="true"> 
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Search your snippet</h4>
+                    </div>
+                    <div class="modal-body">
+                        <br/>
+                        <div class="row">
+                            <label for="snippet_search_language" class="col-sm-3 control-label">Search by Author</label>
+                            <!-- Single button -->
+                            <div class="col-sm-5">
+                                <input name="snippet_author" required 
+                                       type="text" class="form-control" 
+                                       id="snippet_author" placeholder="Search the author..."/>
+                            </div>
+                        </div>
+                        <br/>
+                        
+                        <div class="row">
+                            <label for="snippet_search_language" class="col-sm-3 control-label">Search by Language</label>
+                            <!-- Single button -->
+                            <div class="btn-group col-sm-5">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" onclick="javascript:getSearchLanguages()" aria-expanded="false" id="button_language_search" name="">
+                                    Choose a language <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu col-sm-5" role="menu" id="search_languages"></ul>
+                            </div>
+                        </div>
+                        <br/>
+                        
+                        <div class="row">
+                            <label for="snippet_search_category" class="col-sm-3 control-label">Search by Category</label>
+                            <!-- Single button -->
+                            <div class="btn-group col-sm-5">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" onclick="javascript:getSearchCategories()" aria-expanded="false" id="button_category_search" name="">
+                                    Choose a category <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu col-sm-5" role="menu" id="search_categories"></ul>
+                            </div>
+                        </div><!-- End of Row Category-->
+                        
+                        <br>
+                        <div class="row">
+                            <label for="snippet_tags_search" class="col-sm-3 control-label">Add tag</label>
+                            <div class="col-sm-5">
+                                <input name="snippet_tags_search" required 
+                                       type="text" class="form-control" 
+                                       id="snippet_tags_search" placeholder="Choose tags for your research..."/>
+                            </div>
+                            <button type="button" class="btn btn-primary" onclick="javascript:addTagSearch()"><span class="glyphicon glyphicon-plus"></span></button>
+                            <button type="button" class="btn btn-primary" onclick="javascript:removeTagSearch()"><span class="glyphicon glyphicon-minus"></span></button>
+                        </div><!-- End of Row Add Tags-->
+                        <br/>
+                        <div class="row">
+                            <label for="tags_search" class="col-sm-3 control-label">Use the tags</label>
+                            <div class="col-sm-5" id="tags_search"></div>
+                        </div><!-- End of Row Tags-->
+                        <br/>
+                        
+                        <div class="row">
+                            <div class="col-md-3 col-md-offset-3"></div>
+                            <div class="col-md-3 col-md-offset-3">
+                                <button type="button" data-dismiss="modal" class="btn btn-primary btn-lg" onclick="javascript:searchSnippet()">Launch</span></button>
+                        </div>
+                    </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    
+        <div class="modal fade" id="saveModal" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel" aria-hidden="true"> 
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Save your file</h4>
+                    </div>
+                
+                    <div class="modal-body">
+                        <center>
+                        <div class="row">
+                            <h4><i>This will download the file into the computer.</i><br/><br/><b>Do want to you proceed ?</b></h4>
+                        </div><!-- End of Row Language-->
+                        <br/>    
+                        <div class="row">
+                            <div class="col-sm-3"></div>
+                            <button type="button"  data-dismiss="modal"  class="btn btn-primary btn-lg  col-xs-2" onclick="javascript:saveFile()"><b> Yes </b></button>
+                            <div class="col-xs-2"></div>
+                            <button type="button" data-dismiss="modal" class="btn btn-primary btn-lg col-xs-2"><b> No<b/> </button>
+                        </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page content of course! -->
+        <main class="bs-docs-masthead" id="mainpan" role="main">
+            <div class="container">   
+                <br/>
+                <br/>   
+                <br/>
+                <h1 id="page_title">Search for snippets...</h1> 
+                <br/>
+                
+                <b><p id="page_purpose">In here, you can search the snippets you need using the category, tags, language or else... </p></b>    
+            </div>
+        </main>
+        
+        <!-- Rest of the page -->
+        <div class="container">
+            
+            <br/>
+            <div class="container" id="container_search_snippet">
+                <br/>
+                <br/>
+                <div class = "leftHalf">
+                    <h3>Existing snippets</h3>
+                    <br/>
+                    <ul class="list-group" id="existing_snippet">
+                        
+                    </ul>
+                </div>
+                <div class = "middle"></div>
+                <div class = "rightHalf">
+                    <h3>Search for snippets</h3>
+                    <br/>
+                    <form id="post_form" class="form-horizontal">
+                        <div class="row">
+                            <label for="snippet_search" class="col-sm-3 control-label">Search</label>
+                            <div class="col-sm-5">
+                                <input name="snippet_search" required 
+                                       type="text" class="form-control" 
+                                       id="snippet_search" placeholder="Enter a title for your research..."/>
+                            </div>       
+                        </div><!-- End of Row Title-->
+                        <br/>
+                        <div class="row">
+                            <div class="col-md-3 col-md-offset-3"></div>
+                            <div class="col-md-3 col-md-offset-3">
+                                <button type="button" class="btn btn-primary" onclick="javascript:searchSnippet()"> Search </span></button>
+                        </div>
+                        </div>
+                    <br/>
+                    <div class="row">
+                        <h6 class="col-sm-3"><i>Or try a more advanced research...</i></h6>
+                    </div>
+
+                    </form>
+                <br/>
+                <center>
+                    <button class="btn btn-lg btn-primary"  data-toggle="modal" data-target="#searchModal"><b>Advanced research</b></button>
+                </center>
+            </div>
+            
+            </div>
+            
+            <div class="container" id="container_post_snippet">  
+                
+                <h3>Fill the following form</h3>
+                <br/>
+                <form id="post_form" class="form-horizontal">
+                    <div class="row">
+                        <label for="snippet_title" class="col-sm-3 control-label">Title</label>
+                        <div class="col-sm-5">
+                            <input name="snippet_title" required 
+                                   type="text" class="form-control" 
+                                   id="snippet_title" placeholder="Choose a title for your snippet..."/>
+                        </div>       
+                    </div><!-- End of Row Title-->
+                    <br/>
+                    <div class="row">
+                        <label for="snippet_language" class="col-sm-3 control-label">Language</label>
+                        <!-- Single button -->
+                        <div class="btn-group col-sm-5">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" onclick="javascript:getLanguages()" aria-expanded="false" id="button_language" name="">
+                                Choose a language <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu col-sm-5" role="menu" id="menu_languages"></ul>
+                        </div>
+                    </div><!-- End of Row Language-->
+                    <br/>
+                    <div class="row">
+                        <label for="snippet_category" class="col-sm-3 control-label">Category</label>
+                        <!-- Single button -->
+                        <div class="btn-group col-sm-5">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" onclick="javascript:getCategories()" aria-expanded="false" id="button_category">
+                                Choose a category <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu col-sm-5" role="menu" id="menu_categories"></ul>
+                        </div>
+                    </div><!-- End of Row Category-->
+                    <br>
+                    <div class="row">
+                        <label for="snippet_tags" class="col-sm-3 control-label">Add tag</label>
+                        <div class="col-sm-5">
+                            <input name="snippet_tags" required 
+                                   type="text" class="form-control" 
+                                   id="snippet_tags" placeholder="Choose tags for your snippet..."/>
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="javascript:addTag()"><span class="glyphicon glyphicon-plus"></span></button>
+                        <button type="button" class="btn btn-primary" onclick="javascript:removeTag()"><span class="glyphicon glyphicon-minus"></span></button>
+                    </div><!-- End of Row Add Tags-->
+                    <br/>
+                    <div class="row">
+                        <label for="tags" class="col-sm-3 control-label">Tags</label>
+                        <div class="col-sm-5" id="tags"></div>
+                    </div><!-- End of Row Tags-->
+                    <br/>
+                    <div class="row">
+                        <label for="snippet_description" class="col-sm-3 control-label">Description</label>
+                        <div class="col-sm-5">
+                            <textarea id="snippet_description" placeholder="Describe your snippet here..."></textarea>
+                        </div>       
+                    </div><!-- End of Row Description-->
+                    <br/>
+                    <div class="row">
+                        <label for="snippet_text" class="col-sm-3 control-label">Content</label>
+                        <div class="col-sm-5">
+                            <textarea id="snippet_content" placeholder="Put your snippet content here..."></textarea>
+                        </div>       
+                    </div><!-- End of Row Content-->
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-3 col-md-offset-3"></div>
+                        <div class="col-md-3 col-md-offset-3">
+                            <button type="button" class="btn btn-primary btn-lg" onclick="javascript:postSnippet()">Post</button>
+                        </div>
+                    </div>
+                    <br/>
+                </form>
+            </div> 
+
+            <div class="container" id="container_edit_snippet">
+                <div id="edit_left_half">
+                    <h3>Edit your own code</h3>
+                    <br/>
+                    <textarea id="edit_window"></textarea>
+                    <br/>    
+                     
+                    <br/>
+                    <div class="row">
+                        <div class="col-xs-2"> </div>
+                        <input type="text"  class="form-control col-sm-5"  placeholder="Enter the name of the file to save" id="savefile" required>
+                        
+                        <div class="col-sm-3">   
+                            <button class="btn btn-primary"  data-toggle="modal" data-target="#saveModal"> Save File </button>
+                        </div>
+                        <a download="" id="download_link" href=""></a>
+                        
+                    </div>   
+                    
+                    
+                </div>
+                <div id="edit_right_half">
+                    <br/>
+                    <div class="row" id="edit_right_top">
+                        <h6><b>Drag your file in the area below to load it...</b></h6>
+                        <br/>
+                        <div id="dropbox" style="color:black;">
+                            <br/>
+                            
+                            <center>
+                                <img id="dropbox_image" src="images/128.png">
+
+                            </center>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div class="row" id="edit_left_top">
+                        <h6><b>Fetch snippets if you need...</b></h6>
+                        <br/>
+                        <center>
+                            <button class="btn btn-primary" onclick="javascript:page_search()"> Go to the reseach page </button>
+                        </center>
+                    </div>
+                       
+                </div>    
+            </div>
+        </div>
+    </body>
+    <script src="editor/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var editor = ace.edit("edit_window");
+        editor.setTheme("ace/theme/eclipse");
+        editor.getSession().setMode("ace/mode/javascript");
+        editor.setFontSize('16px');
+        
+        function saveFile(){
+            if(document.getElementById("savefile").value !== ""){
+                document.getElementById("download_link").setAttribute("download",document.getElementById("savefile").value);
+                document.getElementById("download_link").setAttribute("href","data:text/plain;charset=UTF-8,"+encodeURIComponent(editor.getValue()));
+                document.getElementById('download_link').click();
+            }
+        }
+        
+        $(document).ready(function() {
+            var dropbox = document.getElementById("dropbox")
+
+            // init event handlers
+            dropbox.addEventListener("dragenter", dragEnter, false);
+            dropbox.addEventListener("dragexit", dragExit, false);
+            dropbox.addEventListener("dragover", dragOver, false);
+            dropbox.addEventListener("drop", drop, false);
+
+
+        });
+
+        function dragEnter(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+        }
+
+        function dragExit(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+        }
+
+        function dragOver(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+        }
+
+        function drop(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+
+            var files = evt.dataTransfer.files;
+            var count = files.length;
+
+            // Only call the handler if 1 or more files was dropped.
+            if (count > 0)
+                handleFiles(files);
+        }
+
+        function handleFiles(files) {
+            var file = files[0];
+
+            var reader = new FileReader();
+
+            reader.onload = function(e) { 
+                
+                document.getElementById("dropbox").innerHTML = "<br/><br/><center>File uploaded : <h6>"+file.name+"</h6><img src='images/ok-icon.png'></center>";
+                var extension = file.type.split("/")[1];
+                
+                var real_extension = extension.split("-");
+                var type ="";
+                if(real_extension[1] !== undefined){
+                    type = real_extension[1];
+                }
+                else{
+                    type = real_extension[0];
+                }
+                
+                editor.getSession().setMode("ace/mode/"+type);
+                editor.setValue(reader.result);
+                editor.navigateFileStart();
+            }
+
+            reader.readAsText(file);	
+
+        }
+
+        function quickcopy(){
+            editor.insert(document.getElementById("snippet_modal_content").value);
+            alert("The snippet is available in the editor");
+        }
+        
+    </script>
+
+</html>

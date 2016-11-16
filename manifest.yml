@@ -1,0 +1,10 @@
+applications:
+- services:
+  - TestMT-sqldb
+  disk_quota: 1024M
+  host: TestMT
+  name: TestMT
+  path: libertyDBApp.war
+  domain: mybluemix.net
+  instances: 1
+  memory: 512M

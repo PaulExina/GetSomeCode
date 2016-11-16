@@ -1,0 +1,339 @@
+/*Custom to the navbar-header */
+#top_header{ 
+    height: 0px;
+    background-color: transparent;
+}
+
+.navbar {
+    position: relative;
+    min-height: 30px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+
+.navbar_element{
+    color : white;
+}
+.navbar_element:hover{
+    color : #8A0808;
+    font-weight: bold;
+}
+
+.navbar-brand:hover{
+    color : #8A0808;
+    font-weight: bold;
+}
+
+.navbar-toggle {
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-right: 15px;
+    margin-bottom: 8px;
+    background-color: #8A0808;
+    border-color: #8A0808;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.navbar-toggle .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: white;
+}
+
+.navbar-collapse.bs-navbar-collapse.collapsing{
+    background-color:#8A0808;   
+}
+.navbar-collapse.bs-navbar-collapse.collapse.in{
+    background-color:#8A0808;    
+}
+
+.navbar-wrapper {
+    position:absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 20;
+
+}
+
+.navbar-wrapper .container {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.navbar-wrapper .navbar{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.navbar-wrapper .navbar .container{
+    width: auto;
+}
+
+.navbar-collapse .collapse .in{
+    position: absolute;
+    background-color:black;
+    
+}
+
+.right-inner-addon {
+    position: relative;
+    top: 8px;
+    right: 1px;
+    height: 3px;
+}
+
+.right-inner-addon input {
+    padding-right: 30px;
+}
+
+.right-inner-addon i{
+    position: absolute;
+    right: 0px;
+    padding: 10px 12px;
+    pointer-events: none;
+}
+
+.navbar-inverse {
+    border-color: transparent;
+    border-radius: 0;
+}
+
+a{
+    color: white;
+}
+
+/*Custom to the modal*/
+
+.modal-header{
+    background-color:#8A0808;
+    color: white;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.form-control.snippet_modal{
+    background-color: white;
+    width: 170%;
+}
+
+#snippet_modal_window{
+    width:800px;
+}
+
+.modal-body{
+    color: white;
+    background-color: #222222;
+}
+
+#snippet_modal_content{
+    height: 250px;
+    resize: none;
+}
+
+#snippet_modal_description{
+    height: 100px;
+    resize: none;
+}
+
+/*Custom to the main */
+#mainpan{
+    height: 300px;
+    background-image: url("../images/binary-wallpaper-red.jpg");
+    background-repeat: round;
+    background-size: cover;
+    color : white;
+}
+
+#page_title {
+    font-size:50px;
+}
+
+/*Custom to the body*/
+#html{
+    height: 100%;
+}
+
+#body
+{
+    background-image: url("../images/back_black_fade.jpg");
+    background-size: cover;
+    background-repeat: round;
+    color: white;
+    height: 100%;
+     
+}
+
+
+.btn.btn-primary{
+    background-color:#8A0808;
+    border-color:#8A0808;
+    color : white;
+}
+
+#tags span{
+    background-color:#8A0808;
+    border-color:#8A0808;
+    color : white;
+}
+
+#tags_search span{
+    background-color:#8A0808;
+    border-color:#8A0808;
+    color : white;
+}
+
+li:hover{
+    background-color: #8A0808;
+    color: white;
+}
+
+
+/*Custom to post page*/
+
+#container_post_snippet{
+    display: none;
+}
+
+#snippet_title{
+    height: 35px; 
+    color: black;
+}
+    
+
+#snippet_content{
+    height: 250px;    
+    resize: none;
+    color: black;
+    font-size: 9pt;
+}
+
+#snippet_description{
+    height: 100px;
+    resize: none;
+    color: black;
+    font-size: 9pt;
+}
+
+
+/*Custom to search page*/
+#snippet_search{
+    height: 35px;
+}
+
+.leftHalf {
+    float: left;
+    width: 40%;
+    height: 100%;
+}
+
+.rightHalf {
+    float: right;
+    width: 40%;  
+    height: 100%;
+}
+
+.middle{
+    width: 20%;
+}
+
+#existing_snippet{
+    height: 300px;
+    color : #222222;
+    overflow-y:scroll;
+}
+
+/*Custom to edit page*/
+#container_edit_snippet{
+    display: none;
+}
+
+#fileElem {
+   /*  Note: display:none on the input won't trigger the click event in WebKit.
+    Setting visibility: hidden and height/width:0 works great. */
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+#filename{
+    color : black;
+    width: 50%;
+}
+
+
+#savefile{
+    color : black;
+    width: 50%;
+}
+
+#edit_left_half {
+    float: left;
+    width: 75%;
+    height: 100%;
+}
+
+#edit_middle{
+    width: 5%;
+}
+
+#edit_right_half {
+    float: right;
+    width: 15%;  
+    height: 100%;
+}
+
+#edit_right_top{
+    height: 200px;
+}
+
+pre{
+    width : 100%;
+    height: 500px;
+    resize: none;
+}
+
+#dropbox{
+    width : 100%;
+    height: 90%;
+    background-color: white;    
+    border-radius: 10px;
+}
+
+#dropbow_image{
+    height: 100%;
+    width: 100%;
+}
+/* Responsive CSS */
+
+@media (min-width: 200px){
+    .navbar-wrapper{
+        margin-top: 20px;
+    }
+
+    .navbar-wraper .container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .navbar-wraper .navbar {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .navbar-wraper .navbar {
+        border-radius: 4px;   
+    }
+
+    .carousel-caption p {
+        margin-bottom: 20px;
+        font-size: 21px;
+        line-height: 1.4;
+    }
+}
